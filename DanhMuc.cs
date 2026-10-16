@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data;
+using ClosedXML.Excel;
 using Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử.Data;
 
 namespace Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử
@@ -168,6 +169,104 @@ namespace Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnXuatExcel_Click(object sender, EventArgs e)
+        {
+            int soDong = 0;
+            foreach (DataGridViewRow row in dgvDanhMuc.Rows)
+            {
+                if (row == null || row.IsNewRow) continue;
+                soDong++;
+            }
+
+            if (soDong == 0)
+            {
+                MessageBox.Show("Không có danh mục để xuất Excel.", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using (var dialog = new SaveFileDialog())
+            {
+                dialog.Title = "Xuất danh sách danh mục";
+                dialog.Filter = "Tệp Excel (*.xlsx)|*.xlsx";
+                dialog.DefaultExt = "xlsx";
+                dialog.AddExtension = true;
+                dialog.FileName = "DanhSachDanhMuc_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx";
+                if (dialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                try
+                {
+                    XuatDanhSachExcel(dialog.FileName);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Không thể xuất Excel: " + error.Message, "Lỗi xuất file",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                MessageBox.Show("Đã xuất " + soDong + " danh mục ra file Excel.", "Thành công",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void XuatDanhSachExcel(string filePath)
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                IXLWorksheet sheet = workbook.Worksheets.Add("Danh mục");
+                int excelCol = 1;
+
+                foreach (DataGridViewColumn column in dgvDanhMuc.Columns)
+                {
+                    if (!column.Visible)
+                        continue;
+
+                    IXLCell header = sheet.Cell(1, excelCol);
+                    header.Value = column.HeaderText;
+                    excelCol++;
+                }
+
+                int lastCol = excelCol - 1;
+                if (lastCol >= 1)
+                {
+                    IXLRange headerRange = sheet.Range(1, 1, 1, lastCol);
+                    headerRange.Style.Font.Bold = true;
+                    headerRange.Style.Font.FontColor = XLColor.White;
+                    headerRange.Style.Fill.BackgroundColor = XLColor.FromArgb(27, 75, 107);
+                    headerRange.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                    headerRange.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                    sheet.Row(1).Height = 22;
+                }
+
+                int excelRow = 2;
+                foreach (DataGridViewRow row in dgvDanhMuc.Rows)
+                {
+                    if (row == null || row.IsNewRow)
+                        continue;
+
+                    excelCol = 1;
+                    foreach (DataGridViewColumn column in dgvDanhMuc.Columns)
+                    {
+                        if (!column.Visible)
+                            continue;
+
+                        var cell = sheet.Cell(excelRow, excelCol);
+                        var value = row.Cells[column.Index].Value;
+                        cell.Value = value == null || value == DBNull.Value ? string.Empty : Convert.ToString(value);
+                        excelCol++;
+                    }
+
+                    excelRow++;
+                }
+
+                sheet.Columns().AdjustToContents();
+                sheet.SheetView.FreezeRows(1);
+                workbook.SaveAs(filePath);
+            }
         }
     }
 }

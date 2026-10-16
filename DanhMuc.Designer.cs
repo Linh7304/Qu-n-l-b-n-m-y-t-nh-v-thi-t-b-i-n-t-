@@ -38,6 +38,7 @@
             this.btnSua = new Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử.RoundedButton();
             this.btnXoa = new Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử.RoundedButton();
             this.btnLamMoi = new Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử.RoundedButton();
+            this.btnXuatExcel = new Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử.RoundedButton();
             this.grpTimKiem = new System.Windows.Forms.GroupBox();
             this.lblTimMa = new System.Windows.Forms.Label();
             this.txtTimMa = new System.Windows.Forms.TextBox();
@@ -117,7 +118,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(85, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(291, 37);
+            this.lblTitle.Size = new System.Drawing.Size(365, 46);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "QUẢN LÝ DANH MỤC";
             // 
@@ -128,7 +129,7 @@
             this.lblSubTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(235)))));
             this.lblSubTitle.Location = new System.Drawing.Point(88, 65);
             this.lblSubTitle.Name = "lblSubTitle";
-            this.lblSubTitle.Size = new System.Drawing.Size(160, 15);
+            this.lblSubTitle.Size = new System.Drawing.Size(196, 20);
             this.lblSubTitle.TabIndex = 2;
             this.lblSubTitle.Text = "Quản lý danh mục sản phẩm";
             // 
@@ -188,7 +189,7 @@
             this.lblMaDanhMuc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
             this.lblMaDanhMuc.Location = new System.Drawing.Point(20, 38);
             this.lblMaDanhMuc.Name = "lblMaDanhMuc";
-            this.lblMaDanhMuc.Size = new System.Drawing.Size(84, 15);
+            this.lblMaDanhMuc.Size = new System.Drawing.Size(102, 20);
             this.lblMaDanhMuc.TabIndex = 0;
             this.lblMaDanhMuc.Text = "Mã danh mục:";
             // 
@@ -197,7 +198,7 @@
             this.txtMaDanhMuc.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtMaDanhMuc.Location = new System.Drawing.Point(155, 34);
             this.txtMaDanhMuc.Name = "txtMaDanhMuc";
-            this.txtMaDanhMuc.Size = new System.Drawing.Size(390, 25);
+            this.txtMaDanhMuc.Size = new System.Drawing.Size(390, 30);
             this.txtMaDanhMuc.TabIndex = 1;
             // 
             // lblTenDanhMuc
@@ -207,7 +208,7 @@
             this.lblTenDanhMuc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
             this.lblTenDanhMuc.Location = new System.Drawing.Point(585, 38);
             this.lblTenDanhMuc.Name = "lblTenDanhMuc";
-            this.lblTenDanhMuc.Size = new System.Drawing.Size(86, 15);
+            this.lblTenDanhMuc.Size = new System.Drawing.Size(104, 20);
             this.lblTenDanhMuc.TabIndex = 2;
             this.lblTenDanhMuc.Text = "Tên danh mục:";
             // 
@@ -216,7 +217,7 @@
             this.txtTenDanhMuc.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtTenDanhMuc.Location = new System.Drawing.Point(700, 34);
             this.txtTenDanhMuc.Name = "txtTenDanhMuc";
-            this.txtTenDanhMuc.Size = new System.Drawing.Size(390, 25);
+            this.txtTenDanhMuc.Size = new System.Drawing.Size(390, 30);
             this.txtTenDanhMuc.TabIndex = 3;
             // 
             // lblMoTa
@@ -226,7 +227,7 @@
             this.lblMoTa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
             this.lblMoTa.Location = new System.Drawing.Point(20, 82);
             this.lblMoTa.Name = "lblMoTa";
-            this.lblMoTa.Size = new System.Drawing.Size(41, 15);
+            this.lblMoTa.Size = new System.Drawing.Size(51, 20);
             this.lblMoTa.TabIndex = 4;
             this.lblMoTa.Text = "Mô tả:";
             // 
@@ -245,6 +246,7 @@
             this.pnlButtons.Controls.Add(this.btnSua);
             this.pnlButtons.Controls.Add(this.btnXoa);
             this.pnlButtons.Controls.Add(this.btnLamMoi);
+            this.pnlButtons.Controls.Add(this.btnXuatExcel);
             this.pnlButtons.Location = new System.Drawing.Point(10, 170);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(1130, 60);
@@ -253,58 +255,76 @@
             // btnThem
             // 
             this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(156)))), ((int)(((byte)(110)))));
-            this.btnThem.BorderRadius = 20;
+            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
-            this.btnThem.Location = new System.Drawing.Point(100, 8);
+            this.btnThem.Location = new System.Drawing.Point(24, 8);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(210, 44);
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "   THÊM";
+            this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
             this.btnSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(125)))), ((int)(((byte)(190)))));
-            this.btnSua.BorderRadius = 20;
+            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
-            this.btnSua.Location = new System.Drawing.Point(340, 8);
+            this.btnSua.Location = new System.Drawing.Point(240, 8);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(210, 44);
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "   SỬA";
+            this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
             this.btnXoa.BackColor = System.Drawing.Color.IndianRed;
-            this.btnXoa.BorderRadius = 20;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.Location = new System.Drawing.Point(580, 8);
+            this.btnXoa.Location = new System.Drawing.Point(456, 8);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(210, 44);
             this.btnXoa.TabIndex = 2;
             this.btnXoa.Text = "   XÓA";
+            this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnLamMoi
             // 
             this.btnLamMoi.BackColor = System.Drawing.Color.Navy;
-            this.btnLamMoi.BorderRadius = 20;
+            this.btnLamMoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnLamMoi.ForeColor = System.Drawing.Color.White;
             this.btnLamMoi.Image = ((System.Drawing.Image)(resources.GetObject("btnLamMoi.Image")));
-            this.btnLamMoi.Location = new System.Drawing.Point(820, 8);
+            this.btnLamMoi.Location = new System.Drawing.Point(672, 8);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(210, 44);
             this.btnLamMoi.TabIndex = 3;
             this.btnLamMoi.Text = "   LÀM MỚI";
+            this.btnLamMoi.UseVisualStyleBackColor = false;
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            // 
+            // btnXuatExcel
+            // 
+            this.btnXuatExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(124)))), ((int)(((byte)(65)))));
+            this.btnXuatExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXuatExcel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnXuatExcel.ForeColor = System.Drawing.Color.White;
+            this.btnXuatExcel.Location = new System.Drawing.Point(900, 8);
+            this.btnXuatExcel.Name = "btnXuatExcel";
+            this.btnXuatExcel.Size = new System.Drawing.Size(210, 44);
+            this.btnXuatExcel.TabIndex = 4;
+            this.btnXuatExcel.Text = "XUẤT EXCEL";
+            this.btnXuatExcel.UseVisualStyleBackColor = false;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // grpTimKiem
             // 
@@ -329,7 +349,7 @@
             this.lblTimMa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
             this.lblTimMa.Location = new System.Drawing.Point(20, 36);
             this.lblTimMa.Name = "lblTimMa";
-            this.lblTimMa.Size = new System.Drawing.Size(84, 15);
+            this.lblTimMa.Size = new System.Drawing.Size(102, 20);
             this.lblTimMa.TabIndex = 0;
             this.lblTimMa.Text = "Mã danh mục:";
             // 
@@ -338,7 +358,7 @@
             this.txtTimMa.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtTimMa.Location = new System.Drawing.Point(125, 32);
             this.txtTimMa.Name = "txtTimMa";
-            this.txtTimMa.Size = new System.Drawing.Size(220, 25);
+            this.txtTimMa.Size = new System.Drawing.Size(220, 30);
             this.txtTimMa.TabIndex = 1;
             // 
             // lblTimTen
@@ -348,7 +368,7 @@
             this.lblTimTen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
             this.lblTimTen.Location = new System.Drawing.Point(370, 36);
             this.lblTimTen.Name = "lblTimTen";
-            this.lblTimTen.Size = new System.Drawing.Size(86, 15);
+            this.lblTimTen.Size = new System.Drawing.Size(104, 20);
             this.lblTimTen.TabIndex = 2;
             this.lblTimTen.Text = "Tên danh mục:";
             // 
@@ -357,13 +377,13 @@
             this.txtTimTen.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtTimTen.Location = new System.Drawing.Point(480, 32);
             this.txtTimTen.Name = "txtTimTen";
-            this.txtTimTen.Size = new System.Drawing.Size(360, 25);
+            this.txtTimTen.Size = new System.Drawing.Size(360, 30);
             this.txtTimTen.TabIndex = 3;
             // 
             // btnTimKiem
             // 
             this.btnTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(156)))), ((int)(((byte)(170)))));
-            this.btnTimKiem.BorderRadius = 20;
+            this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
@@ -372,6 +392,7 @@
             this.btnTimKiem.Size = new System.Drawing.Size(220, 40);
             this.btnTimKiem.TabIndex = 4;
             this.btnTimKiem.Text = "   TÌM KIẾM";
+            this.btnTimKiem.UseVisualStyleBackColor = false;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // lblDanhSach
@@ -381,7 +402,7 @@
             this.lblDanhSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(75)))), ((int)(((byte)(107)))));
             this.lblDanhSach.Location = new System.Drawing.Point(10, 330);
             this.lblDanhSach.Name = "lblDanhSach";
-            this.lblDanhSach.Size = new System.Drawing.Size(175, 19);
+            this.lblDanhSach.Size = new System.Drawing.Size(212, 23);
             this.lblDanhSach.TabIndex = 3;
             this.lblDanhSach.Text = "DANH SÁCH DANH MỤC";
             // 
@@ -426,6 +447,7 @@
             this.dgvDanhMuc.Name = "dgvDanhMuc";
             this.dgvDanhMuc.ReadOnly = true;
             this.dgvDanhMuc.RowHeadersVisible = false;
+            this.dgvDanhMuc.RowHeadersWidth = 51;
             this.dgvDanhMuc.RowTemplate.Height = 32;
             this.dgvDanhMuc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDanhMuc.Size = new System.Drawing.Size(1130, 280);
@@ -435,6 +457,7 @@
             // 
             this.colMaDanhMuc.FillWeight = 80F;
             this.colMaDanhMuc.HeaderText = "Mã danh mục";
+            this.colMaDanhMuc.MinimumWidth = 6;
             this.colMaDanhMuc.Name = "colMaDanhMuc";
             this.colMaDanhMuc.ReadOnly = true;
             // 
@@ -442,6 +465,7 @@
             // 
             this.colTenDanhMuc.FillWeight = 120F;
             this.colTenDanhMuc.HeaderText = "Tên danh mục";
+            this.colTenDanhMuc.MinimumWidth = 6;
             this.colTenDanhMuc.Name = "colTenDanhMuc";
             this.colTenDanhMuc.ReadOnly = true;
             // 
@@ -449,12 +473,13 @@
             // 
             this.colMoTa.FillWeight = 250F;
             this.colMoTa.HeaderText = "Mô tả";
+            this.colMoTa.MinimumWidth = 6;
             this.colMoTa.Name = "colMoTa";
             this.colMoTa.ReadOnly = true;
             // 
             // DanhMuc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1200, 800);
@@ -511,6 +536,7 @@
         private Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử.RoundedButton btnSua;
         private Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử.RoundedButton btnXoa;
         private Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử.RoundedButton btnLamMoi;
+        private Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử.RoundedButton btnXuatExcel;
 
         private System.Windows.Forms.GroupBox grpTimKiem;
 
