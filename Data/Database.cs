@@ -33,7 +33,7 @@ namespace Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử.Data
             }
         }
 
-        internal static void LoadGrid(DataGridView grid, string sql)
+        internal static void LoadGrid(DataGridView grid, string sql) // tải dữ liệu lên DataGridView từ câu lệnh SQL
         {
             DataTable data = Query(sql);
             if (data.Columns.Count != grid.Columns.Count)
@@ -43,14 +43,14 @@ namespace Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử.Data
 
             grid.Rows.Clear();
             foreach (DataRow row in data.Rows)
-            {
-                var values = new object[data.Columns.Count];
-                for (int index = 0; index < values.Length; index++)
+            { 
+                var values = new object[data.Columns.Count];  // tạo mảng để chứa giá trị của từng cột trong hàng dữ liệu
+                for (int index = 0; index < values.Length; index++) // lặp qua từng cột trong hàng dữ liệu
                 {
-                    values[index] = row.IsNull(index) ? null : row[index];
+                    values[index] = row.IsNull(index) ? null : row[index]; // nếu giá trị là null trong cơ sở dữ liệu, gán null vào mảng
                 }
 
-                grid.Rows.Add(values);
+                grid.Rows.Add(values); 
             }
 
             grid.ClearSelection();
@@ -71,9 +71,9 @@ namespace Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử.Data
             return "Không thể lưu " + item + ": " + error.Message;
         }
 
-        internal static void DeleteSelected(DataGridView grid, string item, string sql, Action reload)
+        internal static void DeleteSelected(DataGridView grid, string item, string sql, Action reload) // xóa bản ghi được chọn trong DataGridView và cập nhật lại danh sách
         {
-            if (grid.SelectedRows.Count != 1 || grid.SelectedRows[0].IsNewRow)
+            if (grid.SelectedRows.Count != 1 || grid.SelectedRows[0].IsNewRow) // kiểm tra xem có đúng một hàng được chọn và không phải là hàng mới chưa lưu
             {
                 MessageBox.Show("Hãy chọn một " + item + " trong danh sách để xóa.",
                     "Chưa chọn dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);

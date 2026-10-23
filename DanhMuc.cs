@@ -168,7 +168,30 @@ namespace Quản_lý_bán_máy_tính_và_thiết_bị_điện_tử
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
+            string maTim = txtTimMa.Text.Trim();
+            string tenTim = txtTimTen.Text.Trim();
+            String sql = "SELECT MaDanhMuc, TenDanhMuc, MoTa FROM dbo.DanhMuc WHERE 1=1";
 
+            if (!string.IsNullOrEmpty(maTim))
+            {
+                sql += " AND MaDanhMuc LIKE 'N%" + maTim.Replace("'", "''") + "%'";
+            }
+
+            if (!string.IsNullOrEmpty(tenTim))
+            {
+                sql += " AND TenDanhMuc LIKE 'N%" + tenTim.Replace("'", "''") + "%'";
+            }
+
+            sql += " ORDER BY MaDanhMuc";
+            try
+            {
+                Database.LoadGrid(dgvDanhMuc, sql);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Không thể tìm danh mục: " + error.Message, "Lỗi dữ liệu",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
